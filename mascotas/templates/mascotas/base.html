@@ -1,0 +1,180 @@
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Proyecto</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Google Font link-->
+    {% include 'material/includes/material_css.html' %}
+    <script src="{% static 'material/js/jquery.js' %}"></script>
+    {% include 'material/includes/material_js.html' %}
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/slick.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/slick-theme.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/fonticons.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/bootsnav.css'%}" type="text/css" />
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+    <!--<link rel="stylesheet" href="assets/css/colors/maron.css">-->
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}" type="text/css" />
+    <script type="text/javascript" src="{% static 'js1/vendor/modernizr-2.8.3-respond-1.4.2.min.js'%}"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse">
+
+
+
+    <div class="culmn">
+        <!--Home page style-->
+
+
+        <nav class="navbar navbar-default navbar-fixed white no-background bootsnav">
+            <!-- Start Top Search -->
+            <div class="top-search">
+                <div class="container">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Top Search -->
+
+            <div class="container">
+                <!-- Start Atribute Navigation -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        PETSHOT <i class="fa fa-paw"></i>
+                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        {% if user.is_authenticated %}
+                        <li><a class="text-black" href="/mascota/nueva/">Agregar desempeño</a></li>
+                        <li><a class="text-black" href="/mascota/nuevos/">Agregar mascota</a></li>
+                        <li><a class="text-black" href="/admin/login/?next=/admin/">Administrador</a></li>
+                        <li>
+                            <a class="text-black">Hola {{ user.username }}</a>
+                        </li>
+                        <li><a class="text-black" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                        {% else %}
+                        <li><a class="text-black" href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+
+
+            <!-- Start Side Menu -->
+            <div class="side">
+
+
+            </div>
+        </nav>
+
+
+
+
+        <div class="page-header">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+        {% block content1 %}
+        {% endblock %}
+        <!-- scroll up-->
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div><!-- End off scroll up -->
+
+
+        <footer id="footer" class="footer bg-black">
+            <div class="container">
+                <div class="row">
+                    <div class="main_footer text-center p-top-40 p-bottom-30">
+                        <p class="wow fadeInRight" data-wow-duration="1s">
+                            Proyecto
+                            <i class="fa fa-heart"></i>
+
+                            <a target="_blank">-Winston Yax</a>
+                            2018
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+    </div>
+
+    <!-- JS includes -->
+    {% load staticfiles %}
+
+    <script type="text/javascript" src="{% static 'js1/vendor/jquery-1.11.2.min.js'%"></script>
+    <script type="text/javascript" src="{% static 'js1/vendor/bootstrap.min.js'%"></script>
+    <script type="text/javascript" src="{% static 'js1/jquery.magnific-popup.js'%"></script>
+    <script type="text/javascript" src="{% static 'js1/jquery.easing.1.3.js'%"></script>
+    <script type="text/javascript" src="{% static 'js1/slick.min.js'%"></script>
+    <script type="text/javascript" src="{% static 'js1/jquery.collapse.js'%"></script>
+    <script type="text/javascript" src="{% static 'js1/bootsnav.js'%"></script>
+
+
+    <!-- paradise slider js -->
+
+
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyD_tAQD36pKp9v4at5AnpGbvBUsLCOSJx8"></script>
+    <script type="text/javascript" src="{% static 'js1/gmaps.min.js'%"></script>
+
+    <script>
+        function showmap() {
+            var mapOptions = {
+                zoom: 8,
+                scrollwheel: false,
+                center: new google.maps.LatLng(-34.397, 150.644),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+            $('.mapheight').css('height', '350');
+            $('.maps_text h3').hide();
+        }
+
+    </script>
+
+
+
+    <script type="text/javascript" src="{% static 'js1/plugins.js'%"></script>
+    <script type="text/javascript" src="{% static 'js1/main.js' %"></script>
+
+</body>
+
+</html>

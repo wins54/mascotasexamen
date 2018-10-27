@@ -1,0 +1,43 @@
+{% extends 'mascotas/base.html' %}
+{% block content %}
+
+<!--Contact Us Section-->
+<section id="contact" class="contact bg-mega fix">
+    <div class="container">
+        <div class="row">
+            <div class="main_contact roomy-100 text-white">
+                <div class="col-md-4">
+                    <div class="rage_widget">
+                        <div class="widget_head">
+                            <h3 class="text-white">Mascota</h3>
+                            <div class="separator_small"></div>
+                        </div>
+                        <p>Ingrese o edite tu mascota. </p>
+
+                        <div class="widget_socail m-top-30">
+                            <ul class="list-inline">
+                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href=""><i class="fa fa-vimeo"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 sm-m-top-30">
+                    {% load material_form %}
+                    <form method="POST" class="post-form" novalidate>{% csrf_token %}
+                        {% csrf_token %}
+                        {{ formulario.as_p}}
+                        <button type="submit" class="btn">Guardar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!--End off row -->
+    </div>
+    <!--End off container -->
+</section>
+{% endblock %}
